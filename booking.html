@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+   — Photography Booking Page
+  ===========================================================
+  BEFORE YOU LAUNCH, customize these 4 things:
+
+  1. WHATSAPP NUMBER — near the bottom, inside the <script> tag,
+     find WHATSAPP_NUMBER and replace it with your real number.
+     International format, digits only — no +, spaces or dashes.
+     Example for Kenya: 2547XXXXXXXX
+
+  2. BRAND NAME — find & replace "Horizon Lens" throughout with
+     your business name.
+
+  3. GALLERY PHOTOS — the Gallery section below uses placeholder
+     images from picsum.photos so the page looks complete out of
+     the box. Swap the <img src="..."> links for your own photos
+     before publishing.
+
+  4. SOCIAL LINKS — the footer Instagram/Facebook icons point to
+     "#" as placeholders. Update with your real profile URLs.
+  ===========================================================
+-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BM Pixels | About </title>
+  <meta name="description" content="Safari, portrait, wedding and event photography across Kenya. Message on WhatsApp to book your session.">
+  <meta name="theme-color" content="#080c1f">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  :root{
+    --navy-deep:#1f2933;
+    --navy:#202a3d;
+    --navy-light:#1c3450;
+    --navy-line:rgba(242,234,217,.12);
+    --gold:rgb(102, 172, 70);
+    --ember:#213a3a;
+    --sand:#329fc0;
+    --sand-dim:rgba(242,234,217,.68);
+    --radius:18px;
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--navy-deep);
+    color:var(--sand);
+    font-family:'Plus Jakarta Sans', system-ui, sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  img{ max-width:100%; display:block; }
+  ul{ list-style:none; }
+  a{ color:inherit; text-decoration:none; }
+  button{ font:inherit; color:inherit; }
+  ::selection{ background:var(--gold); color:var(--navy-deep); }
+
+  h1,h2,h3{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:600;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+  .accent{ font-style:italic; font-weight:500; color:var(--gold); }
+
+  .wrap{
+    max-width:1180px;
+    margin-inline:auto;
+    padding-inline:clamp(1.25rem,5vw,3rem);
+  }
+  section{ padding-block:clamp(4rem,9vw,7rem); position:relative; }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:.72rem;
+    font-weight:600;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:1rem;
+  }
+  .eyebrow--dark{ color:var(--navy-deep); opacity:.7; }
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:.6rem;
+    padding:1rem 1.9rem;
+    border-radius:999px;
+    font-weight:700;
+    font-size:.98rem;
+    white-space:nowrap;
+    transition:transform .35s var(--ease), box-shadow .35s var(--ease), filter .35s var(--ease);
+  }
+  .btn--primary{
+    background:linear-gradient(135deg, var(--gold), var(--ember));
+    color:var(--navy-deep);
+    box-shadow:0 12px 30px -10px rgba(234,176,84,.55);
+  }
+  .btn--primary:hover{ transform:translateY(-3px); filter:brightness(1.06); box-shadow:0 18px 36px -10px rgba(234,176,84,.65); }
+  .btn--ghost{
+    border:1.5px solid var(--navy-line);
+    color:var(--sand);
+  }
+  .btn--ghost:hover{ border-color:var(--gold); color:var(--gold); }
+  .btn--dark{
+    background:var(--navy-deep);
+    color:var(--sand);
+    box-shadow:0 12px 30px -10px rgba(7, 7, 7, 0.5);
+  }
+  .btn--dark:hover{ transform:translateY(-3px); box-shadow:0 18px 36px -10px rgba(8,12,31,.6); }
+
+  /* ---------- scroll reveal ---------- */
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+
+  /* ---------- accessibility ---------- */
+  .skip-link{
+    position:absolute; left:1rem; top:-60px;
+    background:var(--gold); color:var(--navy-deep);
+    padding:.7rem 1.2rem; border-radius:8px; font-weight:700;
+    z-index:999; transition:top .25s var(--ease);
+  }
+  .skip-link:focus{ top:1rem; }
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--gold); outline-offset:3px; border-radius:6px;
+  }
+
+  /* ================= NAV ================= */
+  .nav{
+    position:fixed; inset-inline:0; top:0; z-index:100;
+    background:rgba(7, 7, 7, 0.55);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid transparent;
+    transition:background .3s var(--ease), border-color .3s var(--ease);
+  }
+  
+  .nav.is-scrolled{ background:rgb(7, 7, 7)8; border-color:var(--navy-line); }
+  .nav__inner{
+    max-width:1180px; margin-inline:auto;
+    padding:1.1rem clamp(1.25rem,5vw,3rem);
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav__brand{
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.25rem; letter-spacing:-.01em;
+  }
+  .nav__brand span{ color:var(--gold); }
+  .nav__links{
+    position:absolute; top:100%; left:0; right:0;
+    background:var(--navy); border-bottom:1px solid var(--navy-line);
+    flex-direction:column; align-items:flex-start; gap:0;
+    padding:.5rem clamp(1.25rem,5vw,3rem) 1.5rem;
+    opacity:0; visibility:hidden; transform:translateY(-8px);
+    transition:opacity .3s var(--ease), transform .3s var(--ease), visibility .3s;
+  }
+  .nav__links.is-open{ opacity:1; visibility:visible; transform:translateY(0); display:flex; }
+  .nav__links a:not(.nav__cta){
+    padding:.85rem 0; width:100%; font-weight:500; border-bottom:1px solid var(--navy-line);
+  }
+  .nav__cta{
+    margin-top:1.1rem;
+    display:inline-flex; align-items:center; gap:.5rem;
+    background:linear-gradient(135deg, var(--gold), var(--ember));
+    color:black ; font-weight:700;
+    padding:.85rem 1.4rem; border-radius:999px;
+  }
+  .nav__toggle{
+    width:26px; height:20px; position:relative;
+    background:none; border:none; cursor:pointer;
+    display:flex; flex-direction:column; justify-content:space-between; padding:0;
+  }
+  .nav__toggle span{
+    display:block; height:2px; width:100%; background:var(--sand); border-radius:2px;
+    transition:transform .3s var(--ease), opacity .3s var(--ease);
+  }
+  .nav__toggle.is-active span:nth-child(1){ transform:translateY(9px) rotate(45deg); }
+  .nav__toggle.is-active span:nth-child(2){ opacity:0; }
+  .nav__toggle.is-active span:nth-child(3){ transform:translateY(-9px) rotate(-45deg); }
+
+  @media (min-width:880px){
+    .nav__links{
+      position:static; display:flex; flex-direction:row; align-items:center; gap:2.1rem;
+      background:none; border:none; padding:0; opacity:1; visibility:visible; transform:none;
+    }
+    .nav__links a:not(.nav__cta){ width:auto; padding:0; border:none; }
+    .nav__cta{ margin-top:0; }
+    .nav__toggle{ display:none; }
+  }
+
+  /* ================= HERO ================= */
+  .hero{
+    min-height:100vh; min-height:100svh;
+    display:flex; align-items:center;
+    padding-top:8rem;
+    background:
+      radial-gradient(60% 55% at 50% 18%, rgba(234,176,84,.16), transparent 70%),
+      radial-gradient(90% 70% at 50% 120%, rgba(221,107,77,.14), transparent 60%),
+      var(--navy-deep);
+    overflow:hidden;
+  }
+  .hero__horizon{ position:absolute; left:0; right:0; bottom:0; width:100%; height:auto; z-index:1; }
+  .hero__horizon path{ fill:var(--navy-deep); }
+  .hero__horizon .tree{ fill:var(--navy-deep); }
+  .hero__content{ position:relative; z-index:2; max-width:760px; margin-inline:auto; text-align:center; padding-inline:clamp(1.25rem,5vw,3rem); }
+  .hero h1{ font-size:clamp(2.6rem,6.2vw,4.6rem); margin-bottom:1.3rem; }
+  .hero__sub{ font-size:clamp(1.05rem,2vw,1.2rem); color:var(--sand-dim); max-width:52ch; margin-inline:auto 1.3rem; margin-top:0; margin-bottom:2.3rem; }
+  .hero__actions{ display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; }
+
+  /* ================= MARQUEE ================= */
+  .marquee{
+    border-block:1px solid var(--navy-line);
+    background:var(--navy);
+    overflow:hidden;
+    padding-block:1.1rem;
+  }
+  .marquee__track{
+    display:flex; width:max-content;
+    animation:marquee 26s linear infinite;
+  }
+  .marquee__track span{
+    padding-inline:1.4rem;
+    font-family:'JetBrains Mono', monospace;
+    font-size:.85rem; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--sand-dim); white-space:nowrap;
+  }
+  .marquee__track span.dot{ color:var(--gold); }
+  @keyframes marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+  /* ================= SERVICES ================= */
+  .services h2{ font-size:clamp(2rem,4vw,2.9rem); max-width:16ch; margin-bottom:2.8rem; }
+  .services__grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:1.4rem;
+  }
+  .card{
+    background:var(--navy); border:1px solid var(--navy-line); border-radius:var(--radius);
+    padding:2rem 1.7rem; transition:transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
+  }
+  .card:hover{ transform:translateY(-6px); border-color:rgba(234,176,84,.4); box-shadow:0 20px 40px -20px rgba(0,0,0,.5); }
+  .card__icon{
+    width:48px; height:48px; border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg, rgba(234,176,84,.18), rgba(221,107,77,.14));
+    color:var(--gold); font-size:1.15rem; margin-bottom:1.3rem;
+  }
+  .card h3{ font-size:1.25rem; margin-bottom:.6rem; }
+  .card p{ color:var(--sand-dim); font-size:.95rem; margin-bottom:1.2rem; }
+  .card__link{ font-weight:700; font-size:.9rem; color:var(--gold); display:inline-flex; align-items:center; gap:.4rem; }
+  .card__link i{ transition:transform .3s var(--ease); }
+  .card__link:hover i{ transform:translateX(3px); }
+
+  /* ================= HOW IT WORKS ================= */
+  .how{ background:var(--navy); border-block:1px solid var(--navy-line); }
+  .how__grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:2.4rem;
+    position:relative;
+  }
+  .how__step{ text-align:left; }
+  .how__num{
+    display:flex; align-items:center; justify-content:center;
+    width:44px; height:44px; border-radius:50%;
+    background:var(--navy-light); border:1px solid rgba(234,176,84,.4);
+    color:var(--gold); font-family:'JetBrains Mono', monospace; font-weight:600;
+    margin-bottom:1.1rem;
+  }
+  .how__step h3{ font-size:1.15rem; margin-bottom:.5rem; }
+  .how__step p{ color:var(--sand-dim); font-size:.95rem; }
+
+  /* ================= GALLERY ================= */
+  .gallery h2{ font-size:clamp(2rem,4vw,2.9rem); margin-bottom:2.8rem; }
+  .gallery__grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(230px,1fr)); gap:1rem;
+  }
+  .gallery__item{
+    background:none; border:none; padding:0; cursor:pointer;
+    border-radius:14px; overflow:hidden; position:relative;
+    aspect-ratio:4/5; grid-column:span 1;
+  }
+  .gallery__item.wide{ aspect-ratio:8/5; }
+  @media (min-width:640px){ .gallery__item.wide{ grid-column:span 2; } }
+  .gallery__item img{ width:100%; height:100%; object-fit:cover; transition:transform .6s var(--ease); }
+  .gallery__item::after{
+    content:''; position:absolute; inset:0; border-radius:14px;
+    box-shadow:inset 0 0 0 1px var(--navy-line);
+    transition:box-shadow .35s var(--ease);
+  }
+  .gallery__item:hover img{ transform:scale(1.06); }
+  .gallery__item:hover::after{ box-shadow:inset 0 0 0 2px rgba(234,176,84,.7); }
+
+  .lightbox{
+    position:fixed; inset:0; z-index:200; background:rgba(8,12,31,.94);
+    display:flex; align-items:center; justify-content:center; padding:2rem;
+    opacity:0; visibility:hidden; transition:opacity .3s var(--ease), visibility .3s;
+  }
+  .lightbox.is-open{ opacity:1; visibility:visible; }
+  .lightbox img{ max-width:min(90vw,900px); max-height:85vh; width:auto; border-radius:12px; }
+  .lightbox__close{
+    position:absolute; top:1.5rem; right:1.5rem;
+    width:44px; height:44px; border-radius:50%; border:1px solid var(--navy-line);
+    background:var(--navy); color:var(--sand); font-size:1.4rem; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; line-height:1;
+  }
+  .lightbox__close:hover{ border-color:var(--gold); color:var(--gold); }
+
+  /* ================= ABOUT ================= */
+  .about{ border-top:1px solid var(--navy-line); }
+  .about h2{ font-size:clamp(2rem,4vw,2.9rem); margin-bottom:1.2rem; max-width:18ch; }
+  .about p{ color:var(--sand-dim); max-width:62ch; margin-bottom:1.8rem; }
+  .chips{ display:flex; flex-wrap:wrap; gap:.7rem; }
+  .chips li{
+    font-size:.85rem; font-weight:600; padding:.6rem 1.1rem; border-radius:999px;
+    border:1px solid var(--navy-line); color:var(--sand-dim);
+  }
+
+  /* ================= CTA (gen-z space) ================= */
+  .cta{
+    background:linear-gradient(135deg, var(--gold), var(--ember));
+    color:var(--navy-deep);
+    text-align:center;
+    overflow:hidden;
+    position:relative;
+  }
+  .cta__inner{ position:relative; z-index:1; max-width:640px; margin-inline:auto; }
+  .cta h2{ font-size:clamp(2.2rem,5vw,3.4rem); margin-bottom:1.1rem; }
+  .cta p{ color:rgba(8,12,31,.72); font-size:1.08rem; margin-bottom:2rem; }
+  .cta__note{ margin-top:1.1rem; font-size:.88rem; color:rgba(8,12,31,.65); }
+
+  /* ================= FOOTER ================= */
+  .footer{ padding-block:3.5rem 2rem; border-top:1px solid var(--navy-line); }
+  .footer__inner{
+    display:flex; flex-wrap:wrap; gap:2.5rem; justify-content:space-between;
+    padding-bottom:2.2rem; margin-bottom:1.6rem; border-bottom:1px solid var(--navy-line);
+  }
+  .footer__brand{ font-family:'Fraunces', serif; font-size:1.3rem; font-weight:600; margin-bottom:.5rem; }
+  .footer__inner > div:first-child p{ color:var(--sand-dim); font-size:.92rem; max-width:32ch; }
+  .footer__links{ display:flex; flex-direction:column; gap:.7rem; font-size:.92rem; color:var(--sand-dim); }
+  .footer__links a:hover{ color:var(--gold); }
+  .footer__social{ display:flex; gap:1rem; align-items:flex-start; }
+  .footer__social a{
+    width:40px; height:40px; border-radius:50%; border:1px solid var(--navy-line);
+    display:flex; align-items:center; justify-content:center; transition:border-color .3s, color .3s;
+  }
+  .footer__social a:hover{ border-color:var(--gold); color:var(--gold); }
+  .footer__copy{ font-size:.82rem; color:var(--sand-dim); text-align:center; }
+
+  /* ================= FLOATING WHATSAPP ================= */
+  .floating-wa{
+    position:fixed; right:1.4rem; bottom:1.4rem; z-index:150;
+    width:60px; height:60px; border-radius:50%;
+    background:#25D366; color:#fff; font-size:1.6rem;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 12px 28px -8px rgba(37,211,102,.6);
+  }
+  .floating-wa::before{
+    content:''; position:absolute; inset:0; border-radius:50%;
+    box-shadow:0 0 0 0 rgba(37,211,102,.55);
+    animation:pulse 2.4s var(--ease) infinite;
+  }
+  @keyframes pulse{
+    0%{ box-shadow:0 0 0 0 rgba(37,211,102,.5); }
+    70%{ box-shadow:0 0 0 18px rgba(37,211,102,0); }
+    100%{ box-shadow:0 0 0 0 rgba(37,211,102,0); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+    .reveal{ opacity:1 !important; transform:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#top" class="nav__brand">BM PIXELS <span></span></a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="#about">About</a>
+      <a class="nav__cta wa-link" data-msg="Hi BM Pixels I'd like to ask about booking a photography session." href="https://wa.me/254700000000">
+        <i class="fa-brands fa-whatsapp"></i> Chat
+      </a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="hero__content reveal">
+      <p class="eyebrow">Photography · Kenya</p>
+      <h1>Capturing <span class="accent"> life</span>,<br>One pixels at a time.</h1>
+      <p class="hero__sub">Safari tours, portraits, weddings and events. Captured with a professional eye and booked in a single WhatsApp message.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary wa-link" data-msg="Hi BM Pixels I'd like to book a photography session." href="https://wa.me/254791214497">
+          <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+        <a class="btn btn--ghost" href="#gallery">See the work ↓</a>
+      </div>
+    </div>
+    <svg class="hero__horizon" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,120 C240,80 480,150 720,110 C960,70 1200,130 1440,90 L1440,200 L0,200 Z"></path>
+      <g class="tree">
+        <rect x="205" y="58" width="5" height="58"></rect>
+        <ellipse cx="207" cy="52" rx="52" ry="13"></ellipse>
+      </g>
+      <g class="tree">
+        <rect x="1205" y="78" width="4" height="42"></rect>
+        <ellipse cx="1207" cy="72" rx="38" ry="10"></ellipse>
+      </g>
+    </svg>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Safari Tours</span><span class="dot">◆</span>
+      <span>Portraits</span><span class="dot">◆</span>
+      <span>Weddings</span><span class="dot">◆</span>
+      <span>Corporate Events</span><span class="dot">◆</span>
+      <span>Travel &amp; Landscape</span><span class="dot">◆</span>
+      <span>Safari Tours</span><span class="dot">◆</span>
+      <span>Portraits</span><span class="dot">◆</span>
+      <span>Weddings</span><span class="dot">◆</span>
+      <span>Corporate Events</span><span class="dot">◆</span>
+      <span>Travel &amp; Landscape</span><span class="dot">◆</span>
+    </div>
+  </div>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <p class="eyebrow reveal">Services</p>
+      <h2 class="reveal">Every kind of moment, one lens.</h2>
+      <div class="services__grid">
+        <article class="card reveal">
+          <div class="card__icon"><i class="fa-solid fa-paw"></i></div>
+          <h3>Safari &amp; Wildlife Tours</h3>
+          <p>Full-day and multi-day safari coverage — wildlife, landscapes and candid moments from the vehicle or on foot.</p>
+          <a class="card__link wa-link" data-msg="Hi BM Pixels I'd like to ask about Safari &amp; Wildlife Tour photography." href="https://wa.me/254791214497">Ask about this <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon"><i class="fa-solid fa-camera-retro"></i></div>
+          <h3>Portrait Sessions</h3>
+          <p>Solo, couple, or family portraits  on location or studio-style, indoors or out.</p>
+          <a class="card__link wa-link" data-msg="Hi BM Pixels I'd like to ask about a Portrait Session." href="https://wa.me/254791214497">Ask about this <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon"><i class="fa-solid fa-heart"></i></div>
+          <h3>Weddings &amp; Engagements</h3>
+          <p>From getting-ready shots to the last dance, documented from start to finish.</p>
+          <a class="card__link wa-link" data-msg="Hi BM Pixels I'd like to ask about Wedding &amp; Engagement photography." href="https://wa.me/254791214497">Ask about this <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon"><i class="fa-solid fa-calendar-check"></i></div>
+          <h3>Events &amp; Corporate</h3>
+          <p>Conferences, launches and celebrations, covered discreetly and professionally.</p>
+          <a class="card__link wa-link" data-msg="Hi BM Pixels I'd like to ask about Events &amp; Corporate photography." href="https://wa.me/254791214497">Ask about this <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon"><i class="fa-solid fa-mountain-sun"></i></div>
+          <h3>Travel &amp; Landscape</h3>
+          <p>Documentary-style photography for lodges, tour operators and personal travel.</p>
+          <a class="card__link wa-link" data-msg="Hi BM Pixels I'd like to ask about Travel &amp; Landscape photography." href="https://wa.me/254791214497">Ask about this <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+         <article class="card reveal">
+          <div class="card__icon"><i class="fa-solid fa-mountain-sun"></i></div>
+          <h3>Graphic Design &amp; Polaroids</h3>
+          <p>For custom designs,stickers,posters,
+            polaroids and visual impressions.</p>
+          <a class="card__link wa-link" data-msg="Hi BM Pixels I'd like to ask about Posters &amp; stickers,Polaroids..." href="https://wa.me/254791214497">Ask about this <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="wrap">
+      <p class="eyebrow reveal">How booking works</p>
+      <div class="how__grid">
+        <div class="how__step reveal">
+          <span class="how__num">1</span>
+          <h3>Message us</h3>
+          <p>Send a WhatsApp message with your dates and what you have in mind.</p>
+        </div>
+        <div class="how__step reveal">
+          <span class="how__num">2</span>
+          <h3>Lock the details</h3>
+          <p>We confirm location, timing and specifics, lodge, venue or studio.</p>
+        </div>
+        <div class="how__step reveal">
+          <span class="how__num">3</span>
+          <h3>Shoot day</h3>
+          <p>We show up, you enjoy the moment, we handle the rest.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <p class="eyebrow reveal">Gallery</p>
+      <h2 class="reveal">A few recent frames.</h2>
+      <div class="gallery__grid">
+        <button class="gallery__item wide reveal" data-full="images/recents/Simba.jpg">
+          <img src="images/recents/Simba.jpg" alt="Safari wildlife photography sample" loading="lazy">
+        </button>
+        <button class="gallery__item reveal" data-full="images/recents/Bee.JPG">
+          <img src="images/recents/Bee.JPG" alt="Macro photography sample" loading="lazy">
+        </button>
+        <button class="gallery__item reveal" data-full="images/recents/KQ.JPG">
+          <img src="images/recents/KQ.JPG" alt="Aviation photography sample" loading="lazy">
+        </button>
+         <button class="gallery__item reveal" data-full="images/recents/bwme1.JPG">
+          <img src="images/recents/bwme1.JPG" alt="Portrait photography sample" loading="lazy">
+        </button>
+       
+        <button class="gallery__item wide reveal" data-full="images/recents/moon.JPG">
+          <img src="images/recents/moon.JPG" alt="Travel and landscape photography sample" loading="lazy">
+        </button>
+         <button class="gallery__item reveal" data-full="images/recents/Auba.JPG">
+          <img src="images/recents/Auba.JPG" alt="Sports photography sample" loading="lazy">
+        </button>
+        <button class="gallery__item reveal" data-full="images/recents/Ogamba.JPG">
+          <img src="images/recents/Ogamba.JPG" alt="Corporate & Event photography sample" loading="lazy">
+        </button>
+      
+        <button class="gallery__item reveal" data-full="images/recents/Bird.JPG">
+          <img src="images/recents/Bird.JPG" alt="Bird photography sample" loading="lazy">
+        </button>
+     
+        <button class="gallery__item reveal" data-full="images/recents/wedding.JPG">
+          <img src="images/recents/wedding.JPG" alt="Wedding photography sample" loading="lazy">
+        </button>
+        <button class="gallery__item reveal" data-full="images/recents/pixels.JPG">
+          <img src="images/recents/pixels.JPG" alt="Animal photography sample" loading="lazy">
+        </button>
+        <button class="gallery__item reveal" data-full="images/recents/pixie.JPG">
+          <img src="images/recents/pixie.JPG" alt="Animal photography sample" loading="lazy">
+        </button>
+        <button class="gallery__item reveal" data-full="images/recents/Old B.JPG">
+          <img src="images/recents/Old B.JPG" alt="Animal photography sample" loading="lazy">
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <p class="eyebrow reveal">About</p>
+      <h2 class="reveal">Based in Kenya.</h2>
+      <p class="reveal">BM Pixels is all about capturing energy.
+We specialize in photography that feels alive, from high-intensity moto and sports moments to the raw beauty of safari landscapes. Whether it’s speed, power, or nature in its purest form, every frame is made to hit different.
+But it doesn’t stop at the camera.
+BM Pixels also delivers bold graphic design: posters, logos and creative branding that stand out. With a developer background in the mix, every project is built with both style and structure.
+Photography with energy.
+Design with intention.
+Creativity that actually moves.
+Photographer: Byronmaurice</p>
+      <ul class="chips reveal">
+        <li>Flexible scheduling</li>
+        <li>Own gear &amp; backups</li>
+        <li>Fast turnaround on edits</li>
+        <li>Lodge &amp; tour-operator friendly</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap cta__inner reveal">
+      <p class="eyebrow eyebrow--dark">Let's shoot</p>
+      <h2>Got a date in mind?<br>Let's talk about it.</h2>
+      <p>No forms, no email chains  just message us on WhatsApp and we'll sort out the rest.</p>
+      <a class="btn btn--dark wa-link" data-msg="Hi! I'd like to book a photography session — let's talk dates." href="https://wa.me/254791214497">
+        Chat on WhatsApp <i class="fa-brands fa-whatsapp"></i>
+      </a>
+      <p class="cta__note">Usually replies within a few hours.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__inner">
+      <div>
+        <p class="footer__brand">BM PIXELS </p>
+        <p>Safari, portrait &amp; event photography across Kenya.</p>
+      </div>
+      <nav class="footer__links">
+        <a href="#services">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="#about">About</a>
+        <a class="wa-link" data-msg="Hi! I'd like to ask about booking a photography session." href="https://wa.me/254791214497">Chat on WhatsApp</a>
+      </nav>
+      <div class="footer__social">
+        <a href="https://instagram.com/bm_pixel5" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a class="wa-link" data-msg="Hi! I'd like to ask about booking a photography session." href="https://wa.me/254791214497" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <p class="footer__copy">© 2026 BM Pixels. All rights reserved.</p>
+  </div>
+</footer>
+
+<a class="floating-wa wa-link" data-msg="Hi! I'd like to book a photography session." href="https://wa.me/254791214497" aria-label="Chat on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox__close" id="lightboxClose" aria-label="Close image">&times;</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+  // ------------------------------------------------------------
+  // 1) WHATSAPP NUMBER — replace this one placeholder and every
+  //    .wa-link on the page updates automatically.
+  // ------------------------------------------------------------
+  const WHATSAPP_NUMBER = "254791214497"; // TODO: your real number, international format, digits only
+
+  document.querySelectorAll('.wa-link').forEach(function (link) {
+    const msg = link.dataset.msg || "Hi! I'd like to book a photography session.";
+    link.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg);
+    link.setAttribute('target', '_blank');
+    link.setAttribute('rel', 'noopener noreferrer');
+  });
+
+  // ------------------------------------------------------------
+  // Sticky nav background on scroll
+  // ------------------------------------------------------------
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('is-scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // ------------------------------------------------------------
+  // Mobile nav toggle
+  // ------------------------------------------------------------
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', function () {
+    const isOpen = navLinks.classList.toggle('is-open');
+    navToggle.classList.toggle('is-active', isOpen);
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+  navLinks.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      navLinks.classList.remove('is-open');
+      navToggle.classList.remove('is-active');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // ------------------------------------------------------------
+  // Scroll reveal
+  // ------------------------------------------------------------
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  // ------------------------------------------------------------
+  // Gallery lightbox
+  // ------------------------------------------------------------
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  document.querySelectorAll('.gallery__item').forEach(function (item) {
+    item.addEventListener('click', function () {
+      const img = item.querySelector('img');
+      lightboxImg.src = item.dataset.full || img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BM Pixels | About</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #38a5e9; /* Vibrant blue */
+            --secondary-color: #e74c3c; /* Warm red */
+            --text-dark: #e0e0e0;
+            --text-light: #fff;
+            --bg-dark: #1f2933;
+            --header-bg: #0c0c0c;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: var(--header-bg);
+            color: var(--text-light);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            color: var(--primary-color);
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        /* About Section */
+        .about-container {
+            max-width: 1200px;
+            margin: 100px auto 40px;
+            padding: 2rem;
+            text-align: center;
+            flex: 1;
+        }
+
+        .about-container h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-shadow: var(--shadow);
+            animation: fadeInDown 1s ease;
+        }
+
+        .about-container .intro {
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1.5s ease;
+        }
+
+        .about-content {
+            background: rgba(31, 41, 51, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .about-content p {
+            font-size: 1rem;
+            max-width: 700px;
+            margin: 0 auto 1rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
+        .team-member {
+            background: #2c3e50;
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid var(--primary-color);
+        }
+
+        .team-member h3 {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member p {
+            font-size: 0.9rem;
+            color: #90a4ae;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 1rem;
+            background: var(--header-bg);
+            color: var(--text-light);
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+
+        .pinterest { background: #E60023; }
+        .whatsapp { background: #25D366; }
+        .email { background: #EA4335; }
+        .twitter { background: #080808; }
+        .instagram { background: #C13584; }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Floating Socials */
+        .floating-socials {
+            position: fixed;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+                flex-direction: column;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+            }
+
+            .hamburger {
+                display: block;
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: var(--header-bg);
+                padding: 1rem 0;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                margin: 0.5rem 0;
+                font-size: 1rem;
+            }
+
+            .about-container {
+                margin: 80px 1rem 20px;
+                padding: 1rem;
+            }
+
+            .about-container h1 {
+                font-size: 2rem;
+            }
+
+            .about-container .intro {
+                font-size: 1rem;
+            }
+
+            .about-content {
+                padding: 1.5rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-socials {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-container h1 {
+                font-size: 1.5rem;
+            }
+
+            .about-container .intro {
+                font-size: 0.9rem;
+            }
+
+            .about-content p {
+                font-size: 0.9rem;
+            }
+
+            .team-member img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .team-member h3 {
+                font-size: 1.1rem;
+            }
+
+            .team-member p {
+                font-size: 0.8rem;
+            }
+
+            .social-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo" id="logo">BM Pixels</div>
+        <button class="hamburger"><i class="fas fa-bars"></i></button>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="booking.html">Booking</a>
+            <a href="about.html">About</a>
+            <a href="news.html">News</a>
+        </nav>
+    </header>
+
+    <div class="about-container">
+        <h1>About BM Pixels</h1>
+        <p class="intro">We are passionate storytellers capturing life's most beautiful moments through the lens.</p>
+
+        <div class="about-content">
+            <p>Founded in 2024, BM Pixels is a premier photography & videography studio dedicated to delivering exceptional visual experiences. Our mission is to blend creativity with technical expertise, offering personalized services that range from intimate portraits to grand events. Based in Nairobi, we’ve built a reputation for excellence, working with clients across Kenya and beyond.</p>
+            <p>We create timeless images that resonate with emotion and artistry.</p>
+            <p>We specialize in photography that feels alive, from high-intensity moto and sports moments to the raw beauty of safari landscapes. Whether it’s speed, power, or nature in its purest form, every frame is made to hit different.
+But it doesn’t stop at the camera.
+BM Pixels also delivers bold graphic design: posters, logos and creative branding that stand out. With a developer background in the mix, every project is built with both style and structure.
+Photography with energy.
+Design with intention.
+Creativity that actually moves.</p>
+<p>Pushing Pixels since day one</p>
+        </div>
+
+        <h2>My Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="https://via.placeholder.com/150?text=Ben" alt="Byron Maurice">
+                <h3>Byronmaurice</h3>
+                <p>Lead Photographer & Founder</p>
+            </div>
+           
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://pinterest.com/bm_pixel" class="social-icon pinterest" target="_blank" aria-label="Pinterest">
+                <i class="fab fa-pinterest"></i>
+            </a>
+            <a href="https://wa.me/254791214497" class="social-icon whatsapp" target="_blank" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="mailto:bmpixels@zohomail.com" class="social-icon email" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+              <a href="https://instagram.com/bm_pixel5" class="social-icon instagram" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://x.com/bm_pixel5" class="social-icon twitter" target="_blank" aria-label="Twitter">
+                <i class="fab fa-x-twitter"></i>
+            </a>
+          
+        </div>
+        <p class="copyright">© 2026 BM Pixels. All rights reserved.</p>
+    </footer>
+
+    <div class="floating-socials">
+        <a href="https://pinterest.com/bm_pixel" class="social-icon pinterest" target="_blank" aria-label="Pinterest">
+            <i class="fab fa-pinterest"></i>
+        </a>
+        <a href="https://wa.me/254791214497" class="social-icon whatsapp" target="_blank" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="mailto:bmpixels@zohomail.com" class="social-icon email" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+         <a href="https://instagram.com/bm_pixel5" class="social-icon instagram" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://x.com/bm_pixel5" class="social-icon twitter" target="_blank" aria-label="Twitter">
+            <i class="fab fa-x-twitter"></i>
+        </a>
+       
+    </div>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!header.contains(e.target) && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

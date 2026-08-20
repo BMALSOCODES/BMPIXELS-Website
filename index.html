@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BM PIXELS  - Crafting timeless visuals with passion and precision.">
+    <title>BM Pixels | Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+   
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #38a5e9; /* Vibrant blue */
+            --secondary-color: #ff6600; /* Warm red */
+            --text-dark: #e0e0e0;
+            --text-light: #fcfcfc;
+            --bg-dark: #1f2933;
+            --header-bg: #0c0c0c;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            --transition: all 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            background: var(--header-bg);
+            color: var(--text-light);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: background 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(12, 12, 12, 0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            color: var(--primary-color);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('images/wallpaper/fireworks.JPG') center/cover no-repeat;
+            background-attachment: fixed;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--text-light);
+            position: relative;
+            z-index: 2;
+            padding: 0 2rem;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 1.5s ease;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.6rem;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 2s ease;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--primary-color);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 400;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .cta-btn:hover {
+            background: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Main Content Section */
+        section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            color: var(--text-light);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        section p, section ul {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        section ul {
+            list-style: disc;
+            padding-left: 2rem;
+        }
+
+        section a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 1rem;
+            background: var(--header-bg);
+            color: var(--text-light);
+            text-align: center;
+            box-shadow: var(--shadow);
+            margin-top: auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 1.4rem;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            transform: scale(1.15);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .pinterest { background: #E60023; }
+        .whatsapp { background: #25D366; }
+        .email { background: #EA4335; }
+        .instagram { background: #C13584; }
+        .twitter { background: #00060a; }
+
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            font-size: 1rem;
+            font-weight: 300;
+            opacity: 0.8;
+        }
+
+        /* Floating Socials */
+        .floating-socials {
+            position: fixed;
+            left: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            z-index: 1000;
+        }
+
+        /* Cookie Consent Popup */
+        .cookie-consent {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(31, 41, 51, 0.95);
+            color: var(--text-light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            z-index: 2000;
+            max-width: 500px;
+            width: 90%;
+            display: none;
+            text-align: center;
+        }
+
+        .cookie-consent p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .cookie-consent-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cookie-btn {
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .cookie-btn.accept {
+            background: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .cookie-btn.accept:hover {
+            background: var(--secondary-color);
+        }
+
+        .cookie-btn.decline {
+            background: #555;
+            color: var(--text-light);
+        }
+
+        .cookie-btn.decline:hover {
+            background: #777;
+        }
+
+        .cookie-policy-link {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .cookie-policy-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Cookie Policy Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2500;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--bg-dark);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 700px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            color: var(--text-light);
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--primary-color);
+        }
+
+        .modal-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .modal-content h4 {
+            color: var(--text-light);
+            margin: 1.5rem 0 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .modal-content p, .modal-content ul {
+            font-size: 1rem;
+        }
+
+        .modal-content ul {
+            padding-left: 1.5rem;
+        }
+
+        .modal-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .modal-content th, .modal-content td {
+            border: 1px solid var(--text-dark);
+            padding: 0.5rem;
+            text-align: left;
+        }
+
+        .modal-content th {
+            background: var(--header-bg);
+        }
+            .puzzle-container {
+            max-width: 400px;
+            aspect-ratio: 1;
+            margin: 1.5rem auto;
+            border: 2px solid var(--secondary-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .puzzle-grid {
+            display: grid;
+            width: 100%;
+            height: 100%;
+        }
+
+        .puzzle-piece {
+            background-size: cover;
+            border: 1px solid var(--secondary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .puzzle-piece.correct {
+            box-shadow: 0 0 10px var(--success-color);
+            border-color: var(--success-color);
+        }
+
+        .game-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+
+        .game-controls button {
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            font-weight: 600;
+        }
+
+        .game-controls button:hover {
+            background: #0069d9;
+            transform: translateY(-2px);
+        }
+
+        .difficulty-btn {
+            padding: 0.6rem 1.2rem;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            border-radius: 0.25rem;
+            cursor: pointer;
+            margin: 0.25rem;
+            transition: all var(--transition-speed);
+        }
+
+        .difficulty-btn.active {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .difficulty-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .progress-bar {
+            width: 100%;
+            max-width: 400px;
+            background: var(--accent-color);
+            height: 1rem;
+            margin: 1.5rem auto;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: var(--primary-color);
+            width: 0;
+            transition: width 0.5s;
+        }
+
+        #resultMessage {
+            font-size: 1.2rem;
+            margin: 1.5rem 0;
+            font-weight: bold;
+            display: none;
+            color: var(--success-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content h1 { font-size: 3.5rem; }
+            .hero-content p { font-size: 1.4rem; }
+            .cta-btn { padding: 0.9rem 2rem; font-size: 1.2rem; }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 2rem;
+                flex-direction: column;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+            }
+
+            .hamburger {
+                display: block;
+                position: absolute;
+                right: 2rem;
+                top: 1.5rem;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: var(--header-bg);
+                padding: 1rem 0;
+                position: absolute;
+                top: 100%;
+                left: 0;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                margin: 0.8rem 0;
+                font-size: 1.1rem;
+            }
+
+            .hero {
+                background-attachment: scroll;
+            }
+
+            .hero-content h1 { font-size: 2.8rem; }
+            .hero-content p { font-size: 1.2rem; max-width: 90%; }
+            .cta-btn { padding: 0.8rem 1.8rem; font-size: 1.1rem; }
+            .floating-socials { display: none; }
+        }
+
+        @media (max-width: 480px) {
+            header { padding: 1rem; }
+            .logo { font-size: 1.5rem; }
+            .hamburger { font-size: 1.5rem; right: 1rem; top: 1.2rem; }
+            nav a { font-size: 1rem; }
+            .hero-content h1 { font-size: 2rem; }
+            .hero-content p { font-size: 1rem; }
+            .cta-btn { padding: 0.6rem 1.5rem; font-size: 1rem; }
+            .social-links { gap: 1rem; }
+            .social-icon { width: 40px; height: 40px; font-size: 1.2rem; }
+            .footer-links { flex-direction: column; gap: 0.5rem; }
+            .copyright { font-size: 0.9rem; }
+            .cookie-consent { padding: 1rem; }
+            .cookie-consent p { font-size: 0.9rem; }
+            .cookie-btn { padding: 0.4rem 1rem; font-size: 0.9rem; }
+            .modal-content { padding: 1rem; }
+            .modal-content h3 { font-size: 1.5rem; }
+            .modal-content h4 { font-size: 1.2rem; }
+            .cookie-policy-link { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo" id="logo">BM Pixels</div>
+        <button class="hamburger" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+        <nav>
+            <a href="index.html" data-i18n="nav.home">Home</a>
+            <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+            <a href="booking.html" data-i18n="nav.booking">Booking</a>
+            <a href="about.html" data-i18n="nav.about">About</a>
+            <a href="news.html" data-i18n="nav.news">News</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1 data-i18n="hero.title">BM Pixels</h1>
+            <p data-i18n="hero.subtitle">Crafting timeless visuals with passion and precision.</p>
+            <a href="gallery.html" class="cta-btn" data-i18n="hero.button">Discover Our Work</a>
+        </div>
+    </div>
+
+    <!-- Terms & Conditions Section -->
+    <section id="terms">
+        <h2 data-i18n="terms.title">Terms & Conditions</h2>
+        <p data-i18n="terms.intro">Welcome to BM Pixels. By using this website, you agree to:</p>
+        <ul>
+            <li data-i18n="terms.item1">All photographs and content are the intellectual property of BM Pixels and may not be reproduced without permission.</li>
+            <li data-i18n="terms.item2">Booking deposits are non-refundable unless cancellation occurs 48 hours prior to the scheduled session.</li>
+            <li data-i18n="terms.item3">BM Pixels reserves the right to use images for promotional purposes unless otherwise agreed in writing.</li>
+            <li data-i18n="terms.item4">Any disputes will be resolved under the jurisdiction of Kenya.</li>
+            <li data-i18n="terms.item5">We may update these terms at any time; continued use constitutes acceptance.</li>
+        </ul>
+        <p data-i18n="terms.updated">Last Updated: July 31, 2026</p>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://pinterest.com/bm_pixel" class="social-icon pinterest" target="_blank" aria-label="Pinterest">
+                <i class="fab fa-pinterest"></i>
+            </a>
+            <a href="https://wa.me/254791214497" class="social-icon whatsapp" target="_blank" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="mailto:bmpixels@zohomail.com" class="social-icon email" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+             <a href="https://instagram.com/bm_pixel5" class="social-icon instagram" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://x.com/bm_pixel5" class="social-icon twitter" target="_blank" aria-label="Twitter">
+                <i class="fab fa-x-twitter"></i>
+            </a>
+           
+        </div>
+        <div class="footer-links">
+            <a href="#terms" data-i18n="footer.terms">Terms & Conditions</a>
+            <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+            <a href="#cookie-policy-modal" class="cookie-policy-link" data-i18n="footer.cookie">Cookie Policy</a>
+            <a href="booking.html" data-i18n="footer.book">Book a Session</a>
+        </div>
+        <p class="copyright" data-i18n="footer.copyright">© 2026 BM Pixels. All rights reserved.</p>
+    </footer>
+
+    <div class="floating-socials">
+  
+</a>
+        <a href="https://pinterest.com/bm_pixel" class="social-icon pinterest" target="_blank" aria-label="Pinterest">
+            <i class="fab fa-pinterest"></i>
+        </a>
+        <a href="https://wa.me/254791214497" class="social-icon whatsapp" target="_blank" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="mailto:bmpixels@zohomail.com" class="social-icon email" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+            <a href="https://instagram.com/bm_pixel5" class="social-icon instagram" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://x.com/bm_pixel5" class="social-icon social-icon--x" target="_blank" rel="noopener noreferrer" aria-label="follow us on x">
+            <i class="fab fa-x-twitter"></i>
+        </a>
+    
+    </div>
+
+    <!-- Cookie Consent Popup -->
+    <div class="cookie-consent" id="cookieConsent">
+        <p data-i18n="cookie.message">We use cookies to enhance your experience. See our <a href="privacy.html" data-i18n="cookie.privacy">Privacy Policy</a> for details.</p>
+        <div class="cookie-consent-buttons">
+            <button class="cookie-btn accept" id="acceptCookies" data-i18n="cookie.accept">Accept</button>
+            <a href="#cookie-policy-modal" class="cookie-policy-link" data-i18n="cookie.policy">Cookie Policy</a>
+            <button class="cookie-btn decline" id="declineCookies" data-i18n="cookie.decline">Decline</button>
+        </div>
+    </div>
+
+    <!-- Cookie Policy Modal -->
+    <div class="modal" id="cookie-policy-modal">
+        <div class="modal-content">
+            <span class="modal-close" aria-label="Close">×</span>
+            <h3 data-i18n="cookie.title">Cookie Policy</h3>
+            <p><strong data-i18n="cookie.updated">Last Updated: July 31, 2026</strong></p>
+            <p data-i18n="cookie.intro">BM Pixels values your privacy and strives to provide a seamless online experience. This Cookie Policy outlines how we use cookies and similar technologies on our website, their purpose and your options for managing them.</p>
+
+            <h4 data-i18n="cookie.section1">1. What Are Cookies?</h4>
+            <p data-i18n="cookie.text1">Cookies are small text files stored on your device (e.g., computer, tablet, or smartphone) when you visit a website. They enable us to recognize your device, store preferences and enhance functionality. Cookies can be "session cookies" (temporary, deleted when you close your browser) or "persistent cookies" (stored until they expire or are manually deleted).</p>
+
+            <h4 data-i18n="cookie.section2">2. Why We Use Cookies</h4>
+            <ul>
+                <li data-i18n="cookie.use1"><strong>Essential Functionality:</strong> Ensure the website operates correctly, such as enabling navigation and secure access.</li>
+                <li data-i18n="cookie.use2"><strong>Performance Analysis:</strong> Gather anonymous data on how visitors interact with our site to improve its efficiency and user experience.</li>
+                <li data-i18n="cookie.use3"><strong>Personalization:</strong> Remember your preferences (e.g., language settings) for a tailored experience.</li>
+                <li data-i18n="cookie.use4"><strong>Analytics:</strong> Track usage patterns (e.g., via Google Analytics) to optimize content and design, typically anonymously unless you consent otherwise.</li>
+                <li data-i18n="cookie.use5"><strong>Marketing:</strong> Deliver relevant advertisements based on your browsing behavior, only with your explicit consent.</li>
+            </ul>
+
+            <h4 data-i18n="cookie.section3">3. Types of Cookies We Use</h4>
+            <table>
+                <tr><th data-i18n="cookie.table_category">Category</th><th data-i18n="cookie.table_purpose">Purpose</th><th data-i18n="cookie.table_examples">Examples</th><th data-i18n="cookie.table_duration">Duration</th></tr>
+                <tr><td data-i18n="cookie.table_essential">Essential</td><td data-i18n="cookie.table_essential_purpose">Enable core site functionality</td><td>Session ID</td><td>Session</td></tr>
+                <tr><td data-i18n="cookie.table_performance">Performance</td><td data-i18n="cookie.table_performance_purpose">Analyze site performance</td><td>_ga (Google Analytics)</td><td>Up to 2 years</td></tr>
+                <tr><td data-i18n="cookie.table_functionality">Functionality</td><td data-i18n="cookie.table_functionality_purpose">Enhance user experience</td><td>Language preference</td><td>Up to 1 year</td></tr>
+                <tr><td data-i18n="cookie.table_marketing">Marketing</td><td data-i18n="cookie.table_marketing_purpose">Provide targeted ads (optional)</td><td>Ad tracking IDs</td><td>Varies</td></tr>
+            </table>
+
+            <h4 data-i18n="cookie.section4">4. Your Control Over Cookies</h4>
+            <p data-i18n="cookie.choices">You have several options to manage cookies: via our consent popup (accept all or decline non-essential), browser settings to block/delete cookies, or third-party opt-out tools (e.g., Google Analytics). Blocking essential cookies may impair site functionality.</p>
+
+            <h4 data-i18n="cookie.section5">5. Third-Party Cookies</h4>
+            <p data-i18n="cookie.thirdparty">We may integrate third-party services (e.g., Google Analytics, social media plugins) that set their own cookies. These providers maintain separate privacy policies, which we recommend reviewing.</p>
+
+            <h4 data-i18n="cookie.section6">6. Policy Updates</h4>
+            <p data-i18n="cookie.updates">We may revise this Cookie Policy as needed to comply with legal changes or improve our practices. The "Last Updated" date reflects the latest version. Significant updates will be communicated via the website.</p>
+
+            <h4 data-i18n="cookie.section7">7. Contact Us</h4>
+            <p data-i18n="cookie.contact">For questions or concerns about this policy, please contact: <a href="mailto:bmpixels@zohomail.com">BM Pixels</a> or 0791214497.</p>
+        </div>
+    </div>
+
+    <script>
+        // Language translations
+        const translations = {
+            en: {
+                "nav.home": "Home",
+                "nav.gallery": "Gallery",
+                "nav.booking": "Booking",
+                "nav.about": "About",
+                "nav.news": "News",
+                "hero.title": "BM PIXELS",
+                "hero.subtitle": "Crafting timeless visuals with passion and precision.",
+                "hero.button": "Discover Our Work",
+                "terms.title": "Terms & Conditions",
+                "terms.intro": "Welcome to BM Pixels . By using this website, you agree to:",
+                "terms.item1": "All photographs and content are the intellectual property of BM Pixels and may not be reproduced without permission.",
+                "terms.item2": "Booking deposits are non-refundable unless cancellation occurs 48 hours prior to the scheduled session.",
+                "terms.item3": "BM Pixels reserves the right to use images for promotional purposes unless otherwise agreed in writing.",
+                "terms.item4": "Any disputes will be resolved under the jurisdiction of Kenya.",
+                "terms.item5": "We may update these terms at any time; continued use constitutes acceptance.",
+                "terms.updated": "Last Updated: July 31, 2026",
+                "footer.terms": "Terms & Conditions",
+                "footer.privacy": "Privacy Policy",
+                "footer.cookie": "Cookie Policy",
+                "footer.book": "Book a Session",
+                "footer.copyright": "© 2026 BM Pixels. All rights reserved.",
+                "cookie.message": "We use cookies to enhance your experience. See our {privacy} for details.",
+                "cookie.privacy": "Privacy Policy",
+                "cookie.policy": "Cookie Policy",
+                "cookie.accept": "Accept",
+                "cookie.decline": "Decline",
+                "cookie.title": "Cookie Policy",
+                "cookie.updated": "Last Updated: July 31, 2026",
+                "cookie.intro": "BM Pixels values your privacy and strives to provide a seamless online experience. This Cookie Policy outlines how we use cookies and similar technologies on our website, their purpose and your options for managing them.",
+                "cookie.section1": "1. What Are Cookies?",
+                "cookie.text1": "Cookies are small text files stored on your device (e.g., computer, tablet, or smartphone) when you visit a website. They enable us to recognize your device, store preferences, and enhance functionality. Cookies can be \"session cookies\" (temporary, deleted when you close your browser) or \"persistent cookies\" (stored until they expire or are manually deleted).",
+                "cookie.section2": "2. Why We Use Cookies",
+                "cookie.use1": "Essential Functionality: Ensure the website operates correctly, such as enabling navigation and secure access.",
+                "cookie.use2": "Performance Analysis: Gather anonymous data on how visitors interact with our site to improve its efficiency and user experience.",
+                "cookie.use3": "Personalization: Remember your preferences (e.g., language settings) for a tailored experience.",
+                "cookie.use4": "Analytics: Track usage patterns (e.g., via Google Analytics) to optimize content and design, typically anonymously unless you consent otherwise.",
+                "cookie.use5": "Marketing: Deliver relevant advertisements based on your browsing behavior, only with your explicit consent.",
+                "cookie.section3": "3. Types of Cookies We Use",
+                "cookie.table_category": "Category",
+                "cookie.table_purpose": "Purpose",
+                "cookie.table_examples": "Examples",
+                "cookie.table_duration": "Duration",
+                "cookie.table_essential": "Essential",
+                "cookie.table_essential_purpose": "Enable core site functionality",
+                "cookie.table_performance": "Performance",
+                "cookie.table_performance_purpose": "Analyze site performance",
+                "cookie.table_functionality": "Functionality",
+                "cookie.table_functionality_purpose": "Enhance user experience",
+                "cookie.table_marketing": "Marketing",
+                "cookie.table_marketing_purpose": "Provide targeted ads (optional)",
+                "cookie.section4": "4. Your Control Over Cookies",
+                "cookie.choices": "You have several options to manage cookies: via our consent popup (accept all or decline non-essential), browser settings to block/delete cookies, or third-party opt-out tools (e.g., Google Analytics). Blocking essential cookies may impair site functionality.",
+                "cookie.section5": "5. Third-Party Cookies",
+                "cookie.thirdparty": "We may integrate third-party services (e.g., Google Analytics, social media plugins) that set their own cookies. These providers maintain separate privacy policies, which we recommend reviewing.",
+                "cookie.section6": "6. Policy Updates",
+                "cookie.updates": "We may revise this Cookie Policy as needed to comply with legal changes or improve our practices. The \"Last Updated\" date reflects the latest version. Significant updates will be communicated via the website.",
+                "cookie.section7": "7. Contact Us",
+                "cookie.contact": "For questions or concerns about this policy, please contact: bmpixels@zohomail.com or 0791214497."
+            },
+            es: {
+                "nav.home": "Inicio",
+                "nav.gallery": "Galería",
+                "nav.booking": "Reservas",
+                "nav.about": "Sobre Nosotros",
+                "nav.news": "Noticias",
+                "hero.title": "BM PIXELS FOTOGRAFÍA",
+                "hero.subtitle": "Creando imágenes atemporales con pasión y precisión.",
+                "hero.button": "Descubre Nuestro Trabajo",
+                "terms.title": "Términos y Condiciones",
+                "terms.intro": "Bienvenido a BM Pixels Fotografía. Al usar este sitio web, usted acepta:",
+                "terms.item1": "Todas las fotografías y contenido son propiedad intelectual de BM Pixels y no pueden reproducirse sin permiso.",
+                "terms.item2": "Los depósitos de reserva no son reembolsables a menos que se cancele 48 horas antes de la sesión programada.",
+                "terms.item3": "BM Pixels se reserva el derecho de utilizar imágenes con fines promocionales a menos que se acuerde lo contrario por escrito.",
+                "terms.item4": "Cualquier disputa se resolverá bajo la jurisdicción de [Su País/Estado].",
+                "terms.item5": "Podemos actualizar estos términos en cualquier momento; el uso continuado constituye aceptación.",
+                "terms.updated": "Última actualización: 19 de marzo de 2025",
+                "footer.terms": "Términos y Condiciones",
+                "footer.privacy": "Política de Privacidad",
+                "footer.cookie": "Política de Cookies",
+                "footer.book": "Reservar Sesión",
+                "footer.copyright": "© 2025 BM Pixels. Todos los derechos reservados.",
+                "cookie.message": "Usamos cookies para mejorar tu experiencia. Consulta nuestra {privacy} para más detalles.",
+                "cookie.privacy": "Política de Privacidad",
+                "cookie.policy": "Política de Cookies",
+                "cookie.accept": "Aceptar",
+                "cookie.decline": "Rechazar",
+                "cookie.title": "Política de Cookies",
+                "cookie.updated": "Última actualización: 10 de abril de 2025",
+                "cookie.intro": "BM Pixels Fotografía (\"nosotros\", \"nuestro\") valora tu privacidad y se esfuerza por ofrecer una experiencia en línea fluida. Esta Política de Cookies describe cómo usamos cookies y tecnologías similares en nuestro sitio web, su propósito y tus opciones para gestionarlas.",
+                "cookie.section1": "1. ¿Qué son las Cookies?",
+                "cookie.text1": "Las cookies son pequeños archivos de texto almacenados en tu dispositivo (por ejemplo, computadora, tableta o smartphone) cuando visitas un sitio web. Nos permiten reconocer tu dispositivo, almacenar preferencias y mejorar la funcionalidad. Pueden ser 'cookies de sesión' (temporales, eliminadas al cerrar el navegador) o 'cookies persistentes' (almacenadas hasta que expiran o se eliminan manualmente).",
+                "cookie.section2": "2. Por Qué Usamos Cookies",
+                "cookie.use1": "Funcionalidad Esencial: Aseguran que el sitio web funcione correctamente, como habilitar la navegación y el acceso seguro.",
+                "cookie.use2": "Análisis de Rendimiento: Recolectan datos anónimos sobre cómo los visitantes interactúan con nuestro sitio para mejorar su eficiencia y experiencia de usuario.",
+                "cookie.use3": "Personalización: Recuerdan tus preferencias (por ejemplo, configuración de idioma) para una experiencia personalizada.",
+                "cookie.use4": "Análisis: Rastrean patrones de uso (por ejemplo, vía Google Analytics) para optimizar contenido y diseño, generalmente de forma anónima a menos que des tu consentimiento.",
+                "cookie.use5": "Marketing: Ofrecen anuncios relevantes basados en tu comportamiento de navegación, solo con tu consentimiento explícito.",
+                "cookie.section3": "3. Tipos de Cookies que Usamos",
+                "cookie.table_category": "Categoría",
+                "cookie.table_purpose": "Propósito",
+                "cookie.table_examples": "Ejemplos",
+                "cookie.table_duration": "Duración",
+                "cookie.table_essential": "Esencial",
+                "cookie.table_essential_purpose": "Habilitar funcionalidad básica del sitio",
+                "cookie.table_performance": "Rendimiento",
+                "cookie.table_performance_purpose": "Analizar rendimiento del sitio",
+                "cookie.table_functionality": "Funcionalidad",
+                "cookie.table_functionality_purpose": "Mejorar experiencia del usuario",
+                "cookie.table_marketing": "Marketing",
+                "cookie.table_marketing_purpose": "Ofrecer anuncios dirigidos (opcional)",
+                "cookie.section4": "4. Tu Control Sobre las Cookies",
+                "cookie.choices": "Tienes varias opciones para gestionar cookies: a través de nuestro popup de consentimiento (aceptar todas o rechazar no esenciales), ajustes del navegador para bloquear/eliminar cookies, o herramientas de exclusión de terceros (por ejemplo, Google Analytics). Bloquear cookies esenciales puede afectar la funcionalidad del sitio.",
+                "cookie.section5": "5. Cookies de Terceros",
+                "cookie.thirdparty": "Podemos integrar servicios de terceros (por ejemplo, Google Analytics, plugins de redes sociales) que establecen sus propias cookies. Estos proveedores mantienen políticas de privacidad separadas, que recomendamos revisar.",
+                "cookie.section6": "6. Actualizaciones de la Política",
+                "cookie.updates": "Podemos revisar esta Política de Cookies según sea necesario para cumplir con cambios legales o mejorar nuestras prácticas. La fecha de 'Última Actualización' refleja la versión más reciente. Las actualizaciones significativas se comunicarán a través del sitio web.",
+                "cookie.section7": "7. Contáctanos",
+                "cookie.contact": "Para preguntas o inquietudes sobre esta política, contacta: your@email.com o [Tu Número de Teléfono]."
+            },
+            fr: {
+                "nav.home": "Accueil",
+                "nav.gallery": "Galerie",
+                "nav.booking": "Réservation",
+                "nav.about": "À Propos",
+                "nav.news": "Actualités",
+                "hero.title": "BM Pixels Photographie",
+                "hero.subtitle": "Création d'images intemporelles avec passion et précision.",
+                "hero.button": "Découvrez Notre Travail",
+                "terms.title": "Conditions Générales",
+                "terms.intro": "Bienvenue sur BM Pixels Photographie. En utilisant ce site, vous acceptez:",
+                "terms.item1": "Toutes les photographies et le contenu sont la propriété intellectuelle de BM Pixels et ne peuvent être reproduits sans autorisation.",
+                "terms.item2": "Les acomptes de réservation ne sont pas remboursables sauf annulation 48 heures avant la séance prévue.",
+                "terms.item3": "BM Pixels se réserve le droit d'utiliser les images à des fins promotionnelles sauf accord contraire écrit.",
+                "terms.item4": "Tout litige sera résolu sous la juridiction de [Votre Pays/État].",
+                "terms.item5": "Nous pouvons mettre à jour ces conditions à tout moment; l'utilisation continue constitue une acceptation.",
+                "terms.updated": "Dernière mise à jour: 19 mars 2025",
+                "footer.terms": "Conditions Générales",
+                "footer.privacy": "Politique de Confidentialité",
+                "footer.cookie": "Politique des Cookies",
+                "footer.book": "Réserver une Séance",
+                "footer.copyright": "© 2025 BM Pixels. Tous droits réservés.",
+                "cookie.message": "Nous utilisons des cookies pour améliorer votre expérience. Voir notre {privacy} pour plus de détails.",
+                "cookie.privacy": "Politique de Confidentialité",
+                "cookie.policy": "Politique des Cookies",
+                "cookie.accept": "Accepter",
+                "cookie.decline": "Refuser",
+                "cookie.title": "Politique des Cookies",
+                "cookie.updated": "Dernière mise à jour: 10 avril 2025",
+                "cookie.intro": "BM Pixels Photographie (\"nous\", \"notre\") valorise votre vie privée et s'efforce de fournir une expérience en ligne fluide. Cette Politique des Cookies décrit comment nous utilisons les cookies et technologies similaires sur notre site web, leur but et vos options pour les gérer.",
+                "cookie.section1": "1. Que sont les Cookies ?",
+                "cookie.text1": "Les cookies sont de petits fichiers texte stockés sur votre appareil (par exemple, ordinateur, tablette ou smartphone) lorsque vous visitez un site web. Ils nous permettent de reconnaître votre appareil, de stocker vos préférences et d'améliorer la fonctionnalité. Ils peuvent être des 'cookies de session' (temporaires, supprimés à la fermeture du navigateur) ou des 'cookies persistants' (stockés jusqu'à leur expiration ou suppression manuelle).",
+                "cookie.section2": "2. Pourquoi Utilisons-Nous les Cookies ?",
+                "cookie.use1": "Fonctionnalité Essentielle : Assurent le bon fonctionnement du site web, comme la navigation et l'accès sécurisé.",
+                "cookie.use2": "Analyse de Performance : Collectent des données anonymes sur la manière dont les visiteurs interagissent avec notre site pour améliorer son efficacité et l'expérience utilisateur.",
+                "cookie.use3": "Personnalisation : Mémorisent vos préférences (par exemple, paramètres de langue) pour une expérience adaptée.",
+                "cookie.use4": "Analyse : Suivent les schémas d'utilisation (par exemple, via Google Analytics) pour optimiser le contenu et la conception, généralement de manière anonyme sauf si vous consentez autrement.",
+                "cookie.use5": "Marketing : Fournissent des publicités pertinentes basées sur votre comportement de navigation, uniquement avec votre consentement explicite.",
+                "cookie.section3": "3. Types de Cookies que Nous Utilisons",
+                "cookie.table_category": "Catégorie",
+                "cookie.table_purpose": "But",
+                "cookie.table_examples": "Exemples",
+                "cookie.table_duration": "Durée",
+                "cookie.table_essential": "Essentiel",
+                "cookie.table_essential_purpose": "Activer les fonctionnalités de base du site",
+                "cookie.table_performance": "Performance",
+                "cookie.table_performance_purpose": "Analyser les performances du site",
+                "cookie.table_functionality": "Fonctionnalité",
+                "cookie.table_functionality_purpose": "Améliorer l'expérience utilisateur",
+                "cookie.table_marketing": "Marketing",
+                "cookie.table_marketing_purpose": "Fournir des publicités ciblées (facultatif)",
+                "cookie.section4": "4. Votre Contrôle sur les Cookies",
+                "cookie.choices": "Vous avez plusieurs options pour gérer les cookies : via notre popup de consentement (accepter tout ou refuser les non-essentiels), les paramètres du navigateur pour bloquer/supprimer les cookies, ou les outils d'exclusion tiers (par exemple, Google Analytics). Bloquer les cookies essentiels peut altérer la fonctionnalité du site.",
+                "cookie.section5": "5. Cookies Tiers",
+                "cookie.thirdparty": "Nous pouvons intégrer des services tiers (par exemple, Google Analytics, plugins de réseaux sociaux) qui définissent leurs propres cookies. Ces fournisseurs maintiennent des politiques de confidentialité distinctes, que nous recommandons de consulter.",
+                "cookie.section6": "6. Mises à Jour de la Politique",
+                "cookie.updates": "Nous pouvons réviser cette Politique des Cookies selon les besoins pour respecter les changements légaux ou améliorer nos pratiques. La date de 'Dernière Mise à Jour' reflète la version la plus récente. Les mises à jour significatives seront communiquées via le site web.",
+                "cookie.section7": "7. Contactez-Nous",
+                "cookie.contact": "Pour des questions ou préoccupations concernant cette politique, contactez : your@email.com ou [Votre Numéro de Téléphone]."
+            },
+            de: {
+                "nav.home": "Startseite",
+                "nav.gallery": "Galerie",
+                "nav.booking": "Buchung",
+                "nav.about": "Über Uns",
+                "nav.news": "Neuigkeiten",
+                "hero.title": "BM Pixels Fotografie",
+                "hero.subtitle": "Zeitlose Bilder mit Leidenschaft und Präzision.",
+                "hero.button": "Entdecken Sie Unsere Arbeit",
+                "terms.title": "Allgemeine Geschäftsbedingungen",
+                "terms.intro": "Willkommen bei BM Pixels Fotografie. Durch die Nutzung dieser Website stimmen Sie zu:",
+                "terms.item1": "Alle Fotos und Inhalte sind geistiges Eigentum von BM Pixels und dürfen nicht ohne Erlaubnis reproduziert werden.",
+                "terms.item2": "Anzahlungen sind nicht erstattungsfähig, es sei denn, die Stornierung erfolgt 48 Stunden vor dem geplanten Termin.",
+                "terms.item3": "BM Pixels behält sich das Recht vor, Bilder für Werbezwecke zu verwenden, sofern nicht schriftlich anders vereinbart.",
+                "terms.item4": "Streitigkeiten werden unter der Gerichtsbarkeit von [Ihr Land/Ihr Bundesstaat] beigelegt.",
+                "terms.item5": "Wir können diese Bedingungen jederzeit aktualisieren; die weitere Nutzung gilt als Annahme.",
+                "terms.updated": "Letzte Aktualisierung: 19. März 2025",
+                "footer.terms": "AGB",
+                "footer.privacy": "Datenschutzrichtlinie",
+                "footer.cookie": "Cookie-Richtlinie",
+                "footer.book": "Termin Buchen",
+                "footer.copyright": "© 2025 BM Pixels. Alle Rechte vorbehalten.",
+                "cookie.message": "Wir verwenden Cookies, um Ihr Erlebnis zu verbessern. Siehe unsere {privacy} für Details.",
+                "cookie.privacy": "Datenschutzrichtlinie",
+                "cookie.policy": "Cookie-Richtlinie",
+                "cookie.accept": "Akzeptieren",
+                "cookie.decline": "Ablehnen",
+                "cookie.title": "Cookie-Richtlinie",
+                "cookie.updated": "Letzte Aktualisierung: 10. April 2025",
+                "cookie.intro": "BM Pixels Fotografie (\"wir\", \"unser\") schätzt Ihre Privatsphäre und strebt an, ein reibungsloses Online-Erlebnis zu bieten. Diese Cookie-Richtlinie beschreibt, wie wir Cookies und ähnliche Technologien auf unserer Website nutzen, deren Zweck und Ihre Möglichkeiten, sie zu verwalten.",
+                "cookie.section1": "1. Was sind Cookies?",
+                "cookie.text1": "Cookies sind kleine Textdateien, die auf Ihrem Gerät (z.B. Computer, Tablet oder Smartphone) gespeichert werden, wenn Sie eine Website besuchen. Sie ermöglichen es uns, Ihr Gerät zu erkennen, Präferenzen zu speichern und die Funktionalität zu verbessern. Cookies können 'Sitzungscookies' (temporär, gelöscht beim Schließen des Browsers) oder 'permanente Cookies' (gespeichert bis zum Ablauf oder manueller Löschung) sein.",
+                "cookie.section2": "2. Warum Wir Cookies Verwenden",
+                "cookie.use1": "Wesentliche Funktionalität: Stellen sicher, dass die Website korrekt funktioniert, wie Navigation und sicherer Zugriff.",
+                "cookie.use2": "Leistungsanalyse: Sammeln anonyme Daten darüber, wie Besucher mit unserer Seite interagieren, um Effizienz und Nutzererfahrung zu verbessern.",
+                "cookie.use3": "Personalisierung: Merken sich Ihre Präferenzen (z.B. Spracheinstellungen) für ein maßgeschneidertes Erlebnis.",
+                "cookie.use4": "Analyse: Verfolgen Nutzungsmuster (z.B. über Google Analytics) zur Optimierung von Inhalt und Design, in der Regel anonym, außer bei Ihrer Zustimmung.",
+                "cookie.use5": "Marketing: Liefern relevante Werbung basierend auf Ihrem Surfverhalten, nur mit Ihrer ausdrücklichen Zustimmung.",
+                "cookie.section3": "3. Arten von Cookies, die Wir Verwenden",
+                "cookie.table_category": "Kategorie",
+                "cookie.table_purpose": "Zweck",
+                "cookie.table_examples": "Beispiele",
+                "cookie.table_duration": "Dauer",
+                "cookie.table_essential": "Wesentlich",
+                "cookie.table_essential_purpose": "Grundlegende Website-Funktionalität ermöglichen",
+                "cookie.table_performance": "Leistung",
+                "cookie.table_performance_purpose": "Leistung der Website analysieren",
+                "cookie.table_functionality": "Funktionalität",
+                "cookie.table_functionality_purpose": "Nutzererfahrung verbessern",
+                "cookie.table_marketing": "Marketing",
+                "cookie.table_marketing_purpose": "Gezielte Werbung bereitstellen (optional)",
+                "cookie.section4": "4. Ihre Kontrolle über Cookies",
+                "cookie.choices": "Sie haben mehrere Möglichkeiten, Cookies zu verwalten: über unser Zustimmungs-Popup (alle akzeptieren oder nicht-essentielle ablehnen), Browsereinstellungen zum Blockieren/Löschen von Cookies oder Drittanbieter-Opt-Out-Tools (z.B. Google Analytics). Das Blockieren essentieller Cookies kann die Funktionalität der Website beeinträchtigen.",
+                "cookie.section5": "5. Cookies von Drittanbietern",
+                "cookie.thirdparty": "Wir können Dienste von Drittanbietern (z.B. Google Analytics, Social-Media-Plugins) integrieren, die eigene Cookies setzen. Diese Anbieter unterhalten separate Datenschutzrichtlinien, die wir empfehlen zu überprüfen.",
+                "cookie.section6": "6. Richtlinien-Updates",
+                "cookie.updates": "Wir können diese Cookie-Richtlinie bei Bedarf überarbeiten, um gesetzliche Änderungen einzuhalten oder unsere Praktiken zu verbessern. Das Datum der 'Letzten Aktualisierung' gibt die neueste Version an. Wesentliche Updates werden über die Website mitgeteilt.",
+                "cookie.section7": "7. Kontaktieren Sie Uns",
+                "cookie.contact": "Für Fragen oder Bedenken zu dieser Richtlinie kontaktieren Sie: your@email.com oder [Ihre Telefonnummer]."
+            },
+            it: {
+                "nav.home": "Home",
+                "nav.gallery": "Galleria",
+                "nav.booking": "Prenotazione",
+                "nav.about": "Chi Siamo",
+                "nav.news": "Novità",
+                "hero.title": "BM Pixels Fotografia",
+                "hero.subtitle": "Creare immagini senza tempo con passione e precisione.",
+                "hero.button": "Scopri il Nostro Lavoro",
+                "terms.title": "Termini e Condizioni",
+                "terms.intro": "Benvenuto in BM Pixels Fotografia. Utilizzando questo sito, accetti:",
+                "terms.item1": "Tutte le fotografie e i contenuti sono proprietà intellettuale di BM Pixels e non possono essere riprodotti senza permesso.",
+                "terms.item2": "I depositi di prenotazione non sono rimborsabili a meno che la cancellazione non avvenga 48 ore prima della sessione programmata.",
+                "terms.item3": "BM Pixels si riserva il diritto di utilizzare le immagini per scopi promozionali salvo diverso accordo scritto.",
+                "terms.item4": "Eventuali controversie saranno risolte sotto la giurisdizione di [Il tuo Paese/Stato].",
+                "terms.item5": "Possiamo aggiornare questi termini in qualsiasi momento; l'uso continuato costituisce accettazione.",
+                "terms.updated": "Ultimo aggiornamento: 19 marzo 2025",
+                "footer.terms": "Termini e Condizioni",
+                "footer.privacy": "Privacy Policy",
+                "footer.cookie": "Politica sui Cookie",
+                "footer.book": "Prenota una Sessione",
+                "footer.copyright": "© 2025 BM Pixels. Tutti i diritti riservati.",
+                "cookie.message": "Utilizziamo cookie per migliorare la tua esperienza. Vedi la nostra {privacy} per i dettagli.",
+                "cookie.privacy": "Privacy Policy",
+                "cookie.policy": "Politica sui Cookie",
+                "cookie.accept": "Accetta",
+                "cookie.decline": "Rifiuta",
+                "cookie.title": "Politica sui Cookie",
+                "cookie.updated": "Ultimo aggiornamento: 10 aprile 2025",
+                "cookie.intro": "BM Pixels Fotografia (\"noi\", \"nostro\") valorizza la tua privacy e si impegna a fornire un'esperienza online fluida. Questa Politica sui Cookie descrive come utilizziamo i cookie e tecnologie simili sul nostro sito web, il loro scopo e le tue opzioni per gestirli.",
+                "cookie.section1": "1. Cosa sono i Cookie?",
+                "cookie.text1": "I cookie sono piccoli file di testo memorizzati sul tuo dispositivo (ad esempio, computer, tablet o smartphone) quando visiti un sito web. Ci consentono di riconoscere il tuo dispositivo, memorizzare preferenze e migliorare la funzionalità. Possono essere 'cookie di sessione' (temporanei, eliminati alla chiusura del browser) o 'cookie persistenti' (memorizzati fino alla scadenza o alla rimozione manuale).",
+                "cookie.section2": "2. Perché Usiamo i Cookie",
+                "cookie.use1": "Funzionalità Essenziale: Garantiscono che il sito web funzioni correttamente, come la navigazione e l'accesso sicuro.",
+                "cookie.use2": "Analisi delle Prestazioni: Raccolgono dati anonimi su come i visitatori interagiscono con il nostro sito per migliorarne l'efficienza e l'esperienza utente.",
+                "cookie.use3": "Personalizzazione: Ricordano le tue preferenze (ad esempio, impostazioni di lingua) per un'esperienza su misura.",
+                "cookie.use4": "Analisi: Tracciano i modelli di utilizzo (ad esempio, tramite Google Analytics) per ottimizzare contenuti e design, di solito in modo anonimo salvo tuo consenso.",
+                "cookie.use5": "Marketing: Forniscono annunci pertinenti basati sul tuo comportamento di navigazione, solo con il tuo consenso esplicito.",
+                "cookie.section3": "3. Tipi di Cookie che Usiamo",
+                "cookie.table_category": "Categoria",
+                "cookie.table_purpose": "Scopo",
+                "cookie.table_examples": "Esempi",
+                "cookie.table_duration": "Durata",
+                "cookie.table_essential": "Essenziale",
+                "cookie.table_essential_purpose": "Abilitare le funzionalità di base del sito",
+                "cookie.table_performance": "Prestazioni",
+                "cookie.table_performance_purpose": "Analizzare le prestazioni del sito",
+                "cookie.table_functionality": "Funzionalità",
+                "cookie.table_functionality_purpose": "Migliorare l'esperienza utente",
+                "cookie.table_marketing": "Marketing",
+                "cookie.table_marketing_purpose": "Fornire annunci mirati (opzionale)",
+                "cookie.section4": "4. Il Tuo Controllo sui Cookie",
+                "cookie.choices": "Hai diverse opzioni per gestire i cookie: tramite il nostro popup di consenso (accetta tutto o rifiuta i non essenziali), le impostazioni del browser per bloccare/eliminare i cookie, o strumenti di opt-out di terze parti (ad esempio, Google Analytics). Bloccare i cookie essenziali può compromettere la funzionalità del sito.",
+                "cookie.section5": "5. Cookie di Terze Parti",
+                "cookie.thirdparty": "Possiamo integrare servizi di terze parti (ad esempio, Google Analytics, plugin di social media) che impostano i propri cookie. Questi fornitori mantengono politiche di privacy separate, che consigliamo di rivedere.",
+                "cookie.section6": "6. Aggiornamenti della Politica",
+                "cookie.updates": "Possiamo rivedere questa Politica sui Cookie secondo necessità per conformarci a cambiamenti legali o migliorare le nostre pratiche. La data di 'Ultimo Aggiornamento' riflette la versione più recente. Gli aggiornamenti significativi saranno comunicati tramite il sito web.",
+                "cookie.section7": "7. Contattaci",
+                "cookie.contact": "Per domande o preoccupazioni su questa politica, contatta: your@email.com o [Il tuo Numero di Telefono]."
+            },
+            pt: {
+                "nav.home": "Início",
+                "nav.gallery": "Galeria",
+                "nav.booking": "Reservas",
+                "nav.about": "Sobre",
+                "nav.news": "Notícias",
+                "hero.title": "BM Pixels Fotografia",
+                "hero.subtitle": "Criando visuais atemporais com paixão e precisão.",
+                "hero.button": "Descubra Nosso Trabalho",
+                "terms.title": "Termos e Condições",
+                "terms.intro": "Bem-vindo à BM Pixels Fotografia. Ao usar este site, você concorda com:",
+                "terms.item1": "Todas as fotografias e conteúdo são propriedade intelectual da BM Pixels e não podem ser reproduzidos sem permissão.",
+                "terms.item2": "Depósitos de reserva não são reembolsáveis, a menos que o cancelamento ocorra 48 horas antes da sessão agendada.",
+                "terms.item3": "BM Pixels reserva-se o direito de usar imagens para fins promocionais, a menos que acordado por escrito.",
+                "terms.item4": "Quaisquer disputas serão resolvidas sob a jurisdição de [Seu País/Estado].",
+                "terms.item5": "Podemos atualizar estes termos a qualquer momento; o uso contínuo constitui aceitação.",
+                "terms.updated": "Última atualização: 19 de março de 2025",
+                "footer.terms": "Termos e Condições",
+                "footer.privacy": "Política de Privacidade",
+                "footer.cookie": "Política de Cookies",
+                "footer.book": "Reservar Sessão",
+                "footer.copyright": "© 2025 BM Pixels. Todos os direitos reservados.",
+                "cookie.message": "Usamos cookies para melhorar sua experiência. Veja nossa {privacy} para detalhes.",
+                "cookie.privacy": "Política de Privacidade",
+                "cookie.policy": "Política de Cookies",
+                "cookie.accept": "Aceitar",
+                "cookie.decline": "Recusar",
+                "cookie.title": "Política de Cookies",
+                "cookie.updated": "Última atualização: 10 de abril de 2025",
+                "cookie.intro": "BM Pixels Fotografia (\"nós\", \"nosso\") valoriza sua privacidade e busca proporcionar uma experiência online fluida. Esta Política de Cookies descreve como usamos cookies e tecnologias similares em nosso site, seu propósito e suas opções para gerenciá-los.",
+                "cookie.section1": "1. O que são Cookies?",
+                "cookie.text1": "Cookies são pequenos arquivos de texto armazenados em seu dispositivo (por exemplo, computador, tablet ou smartphone) ao visitar um site. Eles nos permitem reconhecer seu dispositivo, armazenar preferências e melhorar a funcionalidade. Podem ser 'cookies de sessão' (temporários, excluídos ao fechar o navegador) ou 'cookies persistentes' (armazenados até expirarem ou serem excluídos manualmente).",
+                "cookie.section2": "2. Por que Usamos Cookies",
+                "cookie.use1": "Funcionalidade Essencial: Garante que o site funcione corretamente, como permitir navegação e acesso seguro.",
+                "cookie.use2": "Análise de Desempenho: Coletam dados anônimos sobre como os visitantes interagem com nosso site para melhorar sua eficiência e experiência do usuário.",
+                "cookie.use3": "Personalização: Lembram suas preferências (por exemplo, configurações de idioma) para uma experiência personalizada.",
+                "cookie.use4": "Análise: Rastream padrões de uso (por exemplo, via Google Analytics) para otimizar conteúdo e design, geralmente anonimamente, salvo seu consentimento.",
+                "cookie.use5": "Marketing: Entregam anúncios relevantes com base em seu comportamento de navegação, apenas com seu consentimento explícito.",
+                "cookie.section3": "3. Tipos de Cookies que Usamos",
+                "cookie.table_category": "Categoria",
+                "cookie.table_purpose": "Propósito",
+                "cookie.table_examples": "Exemplos",
+                "cookie.table_duration": "Duração",
+                "cookie.table_essential": "Essencial",
+                "cookie.table_essential_purpose": "Habilitar funcionalidades básicas do site",
+                "cookie.table_performance": "Desempenho",
+                "cookie.table_performance_purpose": "Analisar desempenho do site",
+                "cookie.table_functionality": "Funcionalidade",
+                "cookie.table_functionality_purpose": "Melhorar a experiência do usuário",
+                "cookie.table_marketing": "Marketing",
+                "cookie.table_marketing_purpose": "Fornecer anúncios direcionados (opcional)",
+                "cookie.section4": "4. Seu Controle sobre os Cookies",
+                "cookie.choices": "Você tem várias opções para gerenciar cookies: por meio de nosso popup de consentimento (aceitar todos ou recusar os não essenciais), configurações do navegador para bloquear/excluir cookies, ou ferramentas de exclusão de terceiros (por exemplo, Google Analytics). Bloquear cookies essenciais pode prejudicar a funcionalidade do site.",
+                "cookie.section5": "5. Cookies de Terceiros",
+                "cookie.thirdparty": "Podemos integrar serviços de terceiros (por exemplo, Google Analytics, plugins de mídia social) que definem seus próprios cookies. Esses provedores mantêm políticas de privacidade separadas, que recomendamos revisar.",
+                "cookie.section6": "6. Atualizações da Política",
+                "cookie.updates": "Podemos revisar esta Política de Cookies conforme necessário para cumprir mudanças legais ou melhorar nossas práticas. A data de 'Última Atualização' reflete a versão mais recente. Atualizações significativas serão comunicadas via site.",
+                "cookie.section7": "7. Contate-nos",
+                "cookie.contact": "Para perguntas ou preocupações sobre esta política, contate: your@email.com ou [Seu Número de Telefone]."
+            }
+        };
+
+        // Language switcher functionality
+        const languageSelect = document.getElementById('language-select');
+
+        function setInitialLanguage() {
+            const savedLanguage = localStorage.getItem('preferredLanguage');
+            const browserLanguage = navigator.language.substring(0, 2);
+            const defaultLanguage = 'en';
+
+            let languageToUse = defaultLanguage;
+
+            if (savedLanguage && translations[savedLanguage]) {
+                languageToUse = savedLanguage;
+            } else if (translations[browserLanguage]) {
+                languageToUse = browserLanguage;
+            }
+
+            if (languageSelect) {
+                languageSelect.value = languageToUse;
+            }
+            updatePageLanguage(languageToUse);
+        }
+
+        function updatePageLanguage(language) {
+            localStorage.setItem('preferredLanguage', language);
+            document.documentElement.lang = language;
+
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[language] && translations[language][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[language][key];
+                    } else {
+                        element.textContent = translations[language][key];
+                    }
+                }
+            });
+
+            const cookieMessage = document.querySelector('#cookieConsent p');
+            if (cookieMessage) {
+                const privacyText = translations[language]["cookie.privacy"];
+                const messageText = translations[language]["cookie.message"]
+                    .replace('{privacy}', `<a href="privacy.html">${privacyText}</a>`);
+                cookieMessage.innerHTML = messageText;
+            }
+        }
+
+        if (languageSelect) {
+            languageSelect.addEventListener('change', (e) => {
+                updatePageLanguage(e.target.value);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', setInitialLanguage);
+
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+        const header = document.querySelector('header');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', nav.classList.contains('active'));
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!header.contains(e.target) && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Parallax Fallback
+        window.addEventListener('scroll', () => {
+            const hero = document.querySelector('.hero');
+            if (!CSS.supports('background-attachment', 'fixed')) {
+                hero.style.backgroundPositionY = `${window.scrollY * 0.3}px`;
+            }
+        });
+
+        // Cookie Consent
+        const cookieConsent = document.getElementById('cookieConsent');
+        const acceptCookies = document.getElementById('acceptCookies');
+        const declineCookies = document.getElementById('declineCookies');
+        const cookieModal = document.getElementById('cookie-policy-modal');
+        const modalClose = document.querySelector('.modal-close');
+        const cookieLinks = document.querySelectorAll('.cookie-policy-link');
+
+        if (!localStorage.getItem('cookieConsent')) {
+            cookieConsent.style.display = 'block';
+        }
+
+        acceptCookies.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'accepted');
+            cookieConsent.style.display = 'none';
+            // Enable analytics here if applicable
+        });
+
+        declineCookies.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'declined');
+            cookieConsent.style.display = 'none';
+            // Disable non-essential cookies here
+        });
+
+        cookieLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                cookieModal.style.display = 'flex';
+            });
+        });
+
+        modalClose.addEventListener('click', () => {
+            cookieModal.style.display = 'none';
+        });
+
+        cookieModal.addEventListener('click', (e) => {
+            if (e.target === cookieModal) {
+                cookieModal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BM Pixels | News</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #38a5e9; /* Vibrant blue */
+            --secondary-color: #e74c3c; /* Warm red */
+            --text-dark: #e0e0e0;
+            --text-light: #fff;
+            --bg-dark: #1f2933;
+            --header-bg: #0c0c0c;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: var(--header-bg);
+            color: var(--text-light);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            color: var(--primary-color);
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        /* News Section */
+        .news-container {
+            max-width: 1200px;
+            margin: 100px auto 40px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .news-container h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-shadow: var(--shadow);
+            animation: fadeInDown 1s ease;
+        }
+
+        .news-container > p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1.5s ease;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
+        .news-item {
+            background: rgba(31, 41, 51, 0.9);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .news-item h2 {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .news-item p {
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .news-item .date {
+            font-size: 0.9rem;
+            color: #90a4ae;
+            margin-top: 0.5rem;
+        }
+
+        /* Fun Fact Styling */
+        .fun-fact {
+            background: #2c3e50;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 2rem auto;
+            max-width: 800px;
+            text-align: left;
+            box-shadow: var(--shadow);
+        }
+
+        .fun-fact h3 {
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+                flex-direction: column;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+            }
+
+            .hamburger {
+                display: block;
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: var(--header-bg);
+                padding: 1rem 0;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                margin: 0.5rem 0;
+                font-size: 1rem;
+            }
+
+            .news-container {
+                margin: 80px 1rem 20px;
+                padding: 1rem;
+            }
+
+            .news-container h1 {
+                font-size: 2rem;
+            }
+
+            .news-container > p {
+                font-size: 1rem;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fun-fact {
+                margin: 1rem;
+                padding: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .news-container h1 {
+                font-size: 1.5rem;
+            }
+
+            .news-container > p {
+                font-size: 0.9rem;
+            }
+
+            .news-item h2 {
+                font-size: 1.3rem;
+            }
+
+            .news-item p {
+                font-size: 0.9rem;
+            }
+
+            .fun-fact h3 {
+                font-size: 1.1rem;
+            }
+
+            .fun-fact p {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo" id="logo">BM Pixels</div>
+        <button class="hamburger"><i class="fas fa-bars"></i></button>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+  
+            <a href="booking.html">Booking</a>
+            <a href="about.html">About</a>
+            <a href="news.html">News</a>
+        </nav>
+    </header>
+
+    <div class="news-container">
+        <h1>Latest News & Updates</h1>
+        <p>Stay tuned for our latest photography updates and exclusive shoots.</p>
+            <div class="news-grid">
+              <div class="news-item">
+                <h2>Puzzle Game</h2>
+                <p>We’re aware of the issues on the puzzle game, and our development team is working to resolve them as soon as possible.</p>
+                <span class="date">August 4, 2026</span>
+            </div>
+            <div class="news-item">
+                <h2>Tour Guides</h2>
+                <p>Taking tours around the Nairobi city,Kenya's capital.
+                    book for your tour now!
+                </p>
+                <span class="date">August 4, 2026</span>
+            </div>
+        </div>
+
+        <div class="fun-fact">
+            <h3>Photography Fun Fact</h3>
+            <p>Did you know? The first selfie was taken in 1839 by Robert Cornelius, an American photographer. He set up his camera, ran into the frame, and sat still for over a minute to capture the world’s first self-portrait photograph!</p>
+        </div>
+    </div>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!header.contains(e.target) && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
